@@ -6,7 +6,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
-    const response = await fetch("http://localhost:5000/tasks");
+    const response = await fetch("https://taskflow-pvc9.onrender.com/tasks");
     const data = await response.json();
     setTasks(data);
   };
@@ -20,7 +20,7 @@ function App() {
       return;
     }
 
-    await fetch("http://localhost:5000/add", {
+    await fetch("https://taskflow-pvc9.onrender.com/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ function App() {
   };
 
   const toggleTask = async (id, completed) => {
-    await fetch(`http://localhost:5000/tasks/${id}`, {
+    await fetch(`https://taskflow-pvc9.onrender.com/tasks/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -47,13 +47,14 @@ function App() {
 
     fetchTasks();
   };
-  const deleteTask = async (id) => {
-  await fetch(`http://localhost:5000/tasks/${id}`, {
-    method: "DELETE",
-  });
 
-  fetchTasks();
-};
+  const deleteTask = async (id) => {
+    await fetch(`https://taskflow-pvc9.onrender.com/tasks/${id}`, {
+      method: "DELETE",
+    });
+
+    fetchTasks();
+  };
 
   return (
     <div className="app">
@@ -73,20 +74,20 @@ function App() {
       <div className="task-list">
         {tasks.map((item) => (
           <div className="task" key={item._id}>
-  <input
-    type="checkbox"
-    checked={item.completed || false}
-    onChange={() => toggleTask(item._id, item.completed || false)}
-  />
+            <input
+              type="checkbox"
+              checked={item.completed || false}
+              onChange={() => toggleTask(item._id, item.completed || false)}
+            />
 
-  <span className={item.completed ? "completed" : ""}>
-    {item.task}
-  </span>
+            <span className={item.completed ? "completed" : ""}>
+              {item.task}
+            </span>
 
-  <button onClick={() => deleteTask(item._id)}>
-    Delete
-  </button>
-</div>
+            <button onClick={() => deleteTask(item._id)}>
+              Delete
+            </button>
+          </div>
         ))}
       </div>
     </div>
