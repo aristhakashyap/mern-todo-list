@@ -1,19 +1,24 @@
-MERN To-Do List Application
+# MERN To-Do List Application
 
 A full-stack To-Do List application built using the MERN stack.
 
-Features
+## Live Demo
+
+https://taskflow-frontend-uvy4.onrender.com
+
+## Features
 
 - Add new tasks
 - View all tasks
 - Delete tasks
+- Mark tasks as completed
 - Store tasks in MongoDB
 - Backend REST API
 - React-based frontend
 - Express.js server
 - MongoDB database
 
-Technologies Used
+## Technologies Used
 
 - React.js
 - Node.js
@@ -23,7 +28,7 @@ Technologies Used
 - Vite
 - CSS
 
-Project Structure
+## Project Structure
 
 todo-app/
 ├── backend/
@@ -42,23 +47,27 @@ todo-app/
 │
 └── README.md
 
-API Endpoints
+## API Endpoints
 
-Add a Task
+### Add a Task
 
-"POST /add"
+POST /add
 
-Get All Tasks
+### Get All Tasks
 
-"GET /tasks"
+GET /tasks
 
-Delete a Task
+### Update Task Completion Status
 
-"DELETE /tasks/:id"
+PUT /tasks/:id
 
-How to Run the Project
+### Delete a Task
 
-Backend
+DELETE /tasks/:id
+
+## How to Run the Project
+
+### Backend
 
 cd backend
 npm install
@@ -66,9 +75,9 @@ node server.js
 
 The backend runs on:
 
-"http://localhost:5000"
+http://localhost:5000
 
-Frontend
+### Frontend
 
 Open a new terminal:
 
@@ -78,9 +87,9 @@ npm run dev
 
 The frontend runs on:
 
-"http://localhost:5173"
+http://localhost:5173
 
-Database
+## Database
 
 The application uses MongoDB Atlas to store tasks.
 
